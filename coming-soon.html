@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Coming Soon | SalemDomain MobileTech</title>
+<meta name="description" content="Something new is coming from SalemDomain MobileTech. Check back soon."/>
+<meta name="robots" content="noindex, follow"/>
+<link rel="icon" type="image/webp" href="/favicon.webp"/>
+<style>
+:root{
+  --bg:#0e1620;--panel-2:#182533;
+  --line:rgba(201,166,107,.16);
+  --brass:#c9a66b;--bb:#e4c388;
+  --text:#e7e2d6;--dim:#93a0ac;--rad:16px;
+  --f:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
+}
+[data-theme=light]{
+  --bg:#f0ebe0;--panel-2:#f3ede0;
+  --line:rgba(100,75,35,.16);
+  --brass:#9c7a3d;--bb:#b98f49;--text:#1e1a14;--dim:#6a5d4d;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--f);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:24px;overflow-x:hidden;position:relative;
+}
+a{color:var(--bb)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:6px}
+
+.bg-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(201,166,107,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,166,107,.035) 1px,transparent 1px);
+  background-size:52px 52px;
+}
+[data-theme=light] .bg-grid{
+  background-image:
+    linear-gradient(rgba(100,75,35,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(100,75,35,.05) 1px,transparent 1px);
+}
+
+.wrap{position:relative;z-index:1;max-width:640px}
+.logo{
+  width:84px;height:84px;border-radius:20px;margin:0 auto 28px;
+  border:1px solid rgba(201,166,107,.2);
+  box-shadow:0 0 0 1px rgba(201,166,107,.06) inset,0 20px 56px -12px rgba(0,0,0,.5);
+  animation:lf 7s ease-in-out infinite;
+}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.eyebrow{
+  font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:16px;display:block;
+}
+h1{
+  font-size:clamp(1.9rem,5vw,2.8rem);font-weight:900;letter-spacing:-.02em;
+  line-height:1.15;margin-bottom:16px;
+}
+.sub{color:var(--dim);font-size:1rem;max-width:440px;margin:0 auto 44px;line-height:1.7}
+
+.countdown{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;
+}
+.unit{
+  background:var(--panel-2);border:1px solid var(--line);border-radius:var(--rad);
+  padding:18px 14px;min-width:84px;
+}
+.unit .num{
+  font-size:clamp(1.8rem,5vw,2.4rem);font-weight:900;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  background:linear-gradient(135deg,var(--bb),var(--brass));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.unit .lbl{
+  font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dim);margin-top:4px;
+}
+
+.done-msg{display:none;font-size:1.1rem;font-weight:700;color:var(--bb);margin-bottom:40px}
+
+.notify{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;
+}
+.notify a{
+  background:linear-gradient(135deg,var(--brass),var(--bb));color:#0e1620;
+  font-weight:800;font-size:.86rem;padding:12px 26px;border-radius:999px;
+  text-decoration:none;transition:transform .2s,opacity .2s;
+}
+.notify a:hover{transform:translateY(-2px);opacity:.9;color:#0e1620}
+
+footer{position:relative;z-index:1;margin-top:20px;font-size:.78rem;color:var(--dim)}
+footer strong{color:var(--brass)}
+</style>
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<div class="wrap">
+  <img class="logo" src="/favicon.webp" alt="SalemDomain"/>
+  <span class="eyebrow">Zanzibar &middot; Tanzania</span>
+  <h1>Something new is on the way</h1>
+  <p class="sub">We're building the next update for SalemDomain MobileTech. Here's when it lands.</p>
+
+  <div class="countdown" id="countdown" aria-live="polite">
+    <div class="unit"><div class="num" id="cd-days">00</div><div class="lbl">Days</div></div>
+    <div class="unit"><div class="num" id="cd-hours">00</div><div class="lbl">Hours</div></div>
+    <div class="unit"><div class="num" id="cd-mins">00</div><div class="lbl">Minutes</div></div>
+    <div class="unit"><div class="num" id="cd-secs">00</div><div class="lbl">Seconds</div></div>
+  </div>
+
+  <p class="done-msg" id="done-msg">It's here. Refresh to take a look.</p>
+
+  <div class="notify">
+    <a href="mailto:info@salemdomain.com?subject=Notify%20me%20when%20it%27s%20live">Email us to get notified</a>
+  </div>
+</div>
+
+<footer>&copy; 2026 <strong>SalemDomain MobileTech</strong> &mdash; Zanzibar, Tanzania</footer>
+
+<script>
+/*
+ * Set the launch date/time below. Format: 'YYYY-MM-DDTHH:MM:SS+03:00'
+ * The +03:00 is the Zanzibar/East Africa Time offset (EAT, UTC+3) -
+ * change it if the target time is meant for a different time zone.
+ */
+const LAUNCH_AT = new Date('2026-12-01T09:00:00+03:00');
+
+const els = {
+  days: document.getElementById('cd-days'),
+  hours: document.getElementById('cd-hours'),
+  mins: document.getElementById('cd-mins'),
+  secs: document.getElementById('cd-secs'),
+};
+const countdownBox = document.getElementById('countdown');
+const doneMsg = document.getElementById('done-msg');
+
+function pad(n){ return String(n).padStart(2, '0'); }
+
+function tick(){
+  const now = new Date();
+  const diff = LAUNCH_AT - now;
+
+  if (diff <= 0) {
+    countdownBox.style.display = 'none';
+    doneMsg.style.display = 'block';
+    clearInterval(timer);
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  els.days.textContent = pad(days);
+  els.hours.textContent = pad(hours);
+  els.mins.textContent = pad(mins);
+  els.secs.textContent = pad(secs);
+}
+
+tick();
+const timer = setInterval(tick, 1000);
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
