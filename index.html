@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<script>document.documentElement.className+=" js"</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SalemDomain MobileTech | Tools for Mobile Device Technicians</title>
+<meta name="description" content="SalemDomain MobileTech is a desktop platform for mobile technicians, offering device diagnostics, MDM services, ramdisk services and simple per-device billing. Based in Zanzibar, Tanzania."/>
+<meta name="keywords" content="mobile device servicing software, iPhone MDM removal, TECNO MDM removal, ramdisk service, device diagnostics tool, mobile repair shop software Zanzibar"/>
+<link rel="canonical" href="https://salemdomainmobiletech.rf.gd/"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#0e1620"/>
+<meta name="author" content="SalemDomain MobileTech"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="SalemDomain MobileTech"/>
+<meta property="og:title" content="SalemDomain MobileTech"/>
+<meta property="og:description" content="Desktop platform for mobile technicians: device diagnostics, MDM removal, ramdisk services and per-device billing. Based in Zanzibar, Tanzania."/>
+<meta property="og:url" content="https://salemdomainmobiletech.rf.gd/"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image" content="https://salemdomainmobiletech.rf.gd/og-image.jpg"/>
+<meta property="og:image:secure_url" content="https://salemdomainmobiletech.rf.gd/og-image.jpg"/>
+<meta property="og:image:type" content="image/jpeg"/>
+<meta property="og:image:alt" content="SalemDomain MobileTech logo and platform description"/>
+<meta property="og:locale" content="en"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="SalemDomain MobileTech"/>
+<meta name="twitter:description" content="Desktop platform for mobile technicians: device diagnostics, MDM removal, ramdisk services and per-device billing. Based in Zanzibar, Tanzania."/>
+<meta name="twitter:image" content="https://salemdomainmobiletech.rf.gd/og-image.jpg"/>
+<meta name="twitter:image:alt" content="SalemDomain MobileTech logo and platform description"/>
+
+<!-- Favicons (reuse existing logo) -->
+<link rel="icon" type="image/webp" href="/favicon.webp"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png"/>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SalemDomain MobileTech",
+  "description": "Desktop platform for mobile repair technicians offering device diagnostics, MDM removal, ramdisk services, and per-device billing.",
+  "url": "https://salemdomainmobiletech.rf.gd/",
+  "email": "info@salemdomain.com",
+  "areaServed": "Zanzibar, Tanzania",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Zanzibar",
+    "addressCountry": "TZ"
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "iPhone MDM Permanent Removal" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "Ramdisk A12 / A13 Service" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "TECNO / Infinix / Itel MDM Removal" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "Device Diagnostics" }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0e1620;--panel:#141f2b;--panel-2:#182533;
+  --line:rgba(201,166,107,.14);
+  --brass:#c9a66b;--bb:#e4c388;
+  --text:#e7e2d6;--dim:#93a0ac;
+  --ok:#6fbf8f;--rad:14px;--shadow:rgba(0,0,0,.5);
+  --f:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
+}
+[data-theme=light]{
+  --bg:#f0ebe0;--panel:#faf6ee;--panel-2:#f3ede0;
+  --line:rgba(100,75,35,.15);
+  --brass:#9c7a3d;--bb:#b98f49;
+  --text:#1e1a14;--dim:#6a5d4d;--shadow:rgba(80,60,20,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--f);line-height:1.65;overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+::selection{background:rgba(201,166,107,.25)}
+*{scrollbar-width:thin;scrollbar-color:rgba(201,166,107,.3) transparent}
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-thumb{background:rgba(201,166,107,.3);border-radius:999px}
+a{color:var(--bb);text-decoration:none;transition:color .2s}
+a:hover{color:var(--brass)}
+img{display:block}
+
+/* ── TOGGLE ─────────────────────────────── */
+.tog{
+  width:50px;height:26px;border-radius:999px;cursor:pointer;
+  background:var(--panel-2);border:1px solid var(--line);
+  position:relative;flex-shrink:0;
+  transition:border-color .25s;
+}
+.tog:hover{border-color:rgba(201,166,107,.4)}
+.tog-thumb{
+  position:absolute;top:3px;left:3px;
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--brass),var(--bb));
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+[data-theme=light] .tog-thumb{transform:translateX(24px)}
+.tog svg{width:10px;height:10px;stroke:#0e1620;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:absolute}
+.i-sun{opacity:0}.i-moon{opacity:1}
+[data-theme=light] .i-sun{opacity:1}[data-theme=light] .i-moon{opacity:0}
+
+/* ── NAV ─────────────────────────────────── */
+nav{
+  position:fixed;top:0;inset-inline:0;z-index:99;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 44px;height:62px;
+  background:rgba(14,22,32,.78);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+[data-theme=light] nav{background:rgba(240,235,224,.85)}
+.nav-brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:.95rem;color:var(--text)}
+.nav-brand img{width:30px;height:30px;border-radius:7px}
+.nav-links{display:flex;gap:28px;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.nav-links a{color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:var(--bb)}
+.nav-r{display:flex;align-items:center;gap:12px}
+.cta{
+  background:linear-gradient(135deg,var(--brass),var(--bb));
+  color:#0e1620;font-weight:800;font-size:.76rem;
+  padding:8px 18px;border-radius:999px;
+  letter-spacing:.04em;text-transform:uppercase;
+  transition:opacity .2s,transform .2s;
+}
+.cta:hover{opacity:.85;transform:translateY(-1px);color:#0e1620}
+
+/* ── HERO ────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:110px 24px 72px;text-align:center;position:relative;overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,166,107,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,166,107,.035) 1px,transparent 1px);
+  background-size:52px 52px;
+  animation:none;
+}
+[data-theme=light] .hero-grid{
+  background-image:
+    linear-gradient(rgba(100,75,35,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(100,75,35,.05) 1px,transparent 1px);
+}
+@keyframes gd{to{background-position:52px 52px}}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 50% 28%,rgba(201,166,107,.1) 0%,transparent 70%);
+}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+
+.hero-logo{
+  width:88px;height:88px;border-radius:22px;margin:0 auto 26px;
+  border:1px solid rgba(201,166,107,.2);
+  box-shadow:0 0 0 1px rgba(201,166,107,.06) inset,0 20px 56px -12px rgba(0,0,0,.55);
+  animation:lf 7s ease-in-out infinite;
+}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+.eyebrow{
+  font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:18px;display:block;
+}
+h1{
+  font-size:clamp(2.6rem,6.5vw,4.6rem);font-weight:900;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:24px;
+  background:linear-gradient(140deg,var(--text) 0%,var(--bb) 55%,var(--brass) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-p{
+  font-size:1.05rem;color:var(--dim);max-width:500px;
+  margin:0 auto 38px;line-height:1.78;
+}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  padding:13px 30px;border-radius:999px;font-weight:800;font-size:.86rem;
+  letter-spacing:.025em;cursor:pointer;border:none;transition:transform .2s,opacity .2s,box-shadow .2s;
+}
+.btn-g{
+  background:linear-gradient(135deg,var(--brass),var(--bb));color:#0e1620;
+  box-shadow:0 8px 26px -6px rgba(201,166,107,.45);
+}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 12px 32px -6px rgba(201,166,107,.6);opacity:.92;color:#0e1620}
+.btn-o{
+  background:rgba(201,166,107,.07);color:var(--bb);
+  border:1px solid rgba(201,166,107,.28);
+}
+.btn-o:hover{background:rgba(201,166,107,.14);transform:translateY(-2px);color:var(--bb)}
+
+.arr{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--dim);opacity:.45;
+}
+.arr svg{animation:b 2.2s ease-in-out infinite}
+@keyframes b{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ── ABOUT ───────────────────────────────── */
+#about{padding:96px 24px;background:var(--bg)}
+.ab-wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.ab-text{}
+.label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:14px;display:block}
+.ab-text h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:28px}
+.ab-text p{font-size:.96rem;color:var(--dim);line-height:1.82;margin-bottom:20px}
+.ab-text p:last-of-type{margin-bottom:0}
+.ab-text strong{color:var(--bb);font-weight:700}
+.ab-aside{display:flex;flex-direction:column;gap:0}
+.pull-quote{
+  border-left:2px solid var(--brass);padding:20px 0 20px 24px;
+  margin-bottom:32px;
+}
+.pull-quote blockquote{
+  font-size:1.25rem;font-weight:800;line-height:1.45;
+  color:var(--text);letter-spacing:-.01em;margin-bottom:10px;
+  font-style:italic;
+}
+.pull-quote cite{font-size:.76rem;color:var(--dim);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-style:normal}
+.detail-grid{display:flex;flex-direction:column;gap:16px}
+.detail{
+  background:var(--panel-2);border:1px solid var(--line);
+  border-radius:var(--rad);padding:18px 20px;
+  display:flex;gap:14px;align-items:flex-start;
+  transition:border-color .2s;
+}
+.detail:hover{border-color:rgba(201,166,107,.3)}
+.detail-num{
+  font-size:1.5rem;font-weight:900;letter-spacing:-.03em;
+  background:linear-gradient(135deg,var(--bb),var(--brass));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;flex-shrink:0;
+}
+.detail h5{font-size:.85rem;font-weight:800;margin-bottom:3px}
+.detail p{font-size:.78rem;color:var(--dim);line-height:1.55}
+
+/* ── SERVICES ─────────────────────────────── */
+#services{padding:96px 24px;background:var(--panel)}
+.svc-head{max-width:1060px;margin:0 auto 52px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.svc-head-text h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px}
+.svc-head-text p{color:var(--dim);font-size:.94rem;line-height:1.7;max-width:440px}
+.svc-note{font-size:.78rem;color:var(--dim);text-align:right;max-width:220px;line-height:1.55}
+.svc-note strong{color:var(--brass)}
+.svc-grid{
+  max-width:1060px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto;
+  gap:16px;
+}
+.sc{
+  background:var(--panel-2);border:1px solid var(--line);
+  border-radius:var(--rad);padding:26px;
+  position:relative;overflow:hidden;cursor:default;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.sc::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--brass),var(--bb));
+  opacity:0;transition:opacity .25s;
+}
+.sc:hover{transform:translateY(-4px);box-shadow:0 20px 52px -14px var(--shadow);border-color:rgba(201,166,107,.32)}
+.sc:hover::after{opacity:1}
+.sc.wide{grid-column:span 2}
+.sc.tall{padding:32px}
+.si{
+  width:40px;height:40px;background:rgba(201,166,107,.09);
+  border:1px solid rgba(201,166,107,.18);border-radius:11px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.si svg{width:20px;height:20px;stroke:var(--bb);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sc h3{font-size:.97rem;font-weight:800;margin-bottom:9px;line-height:1.3}
+.sc p{font-size:.82rem;color:var(--dim);line-height:1.7}
+.st{
+  display:inline-flex;margin-top:14px;
+  font-size:.65rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;
+}
+.st-ok{background:rgba(111,191,143,.1);border:1px solid rgba(111,191,143,.22);color:var(--ok)}
+.st-br{background:rgba(201,166,107,.1);border:1px solid rgba(201,166,107,.22);color:var(--bb)}
+
+/* ── HOW ─────────────────────────────────── */
+#how{padding:96px 24px;background:var(--bg)}
+.how-wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:80px;align-items:start}
+.how-sticky{position:sticky;top:96px}
+.how-sticky h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+.how-sticky p{color:var(--dim);font-size:.93rem;line-height:1.75}
+.steps{display:flex;flex-direction:column;gap:0;padding-left:24px;border-left:2px solid var(--line)}
+.step{padding:28px 0 28px 32px;border-bottom:1px solid var(--line);position:relative;opacity:1;transform:none;transition:none}
+.step:last-child{border-bottom:none}
+.step-n{
+  position:absolute;left:-17px;top:30px;
+  width:32px;height:32px;background:var(--bg);
+  border:2px solid var(--brass);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:900;color:var(--brass);
+  box-shadow:0 0 14px rgba(201,166,107,.28);
+}
+.step h4{font-size:.97rem;font-weight:800;margin-bottom:8px}
+.step p{font-size:.86rem;color:var(--dim);line-height:1.75}
+
+/* ── FEATURES ─────────────────────────────── */
+#features{padding:96px 24px;background:var(--panel)}
+.ft-wrap{max-width:1060px;margin:0 auto}
+.ft-intro{margin-bottom:52px}
+.ft-intro h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
+.ft-intro p{color:var(--dim);max-width:480px;font-size:.93rem;line-height:1.75}
+.ft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.fi{
+  display:flex;gap:14px;background:var(--panel-2);
+  border:1px solid var(--line);border-radius:var(--rad);padding:20px;
+  transition:border-color .2s;
+}
+.fi:hover{border-color:rgba(201,166,107,.28)}
+.fi svg{flex-shrink:0;width:18px;height:18px;stroke:var(--bb);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+.fi h4{font-size:.88rem;font-weight:800;margin-bottom:3px}
+.fi p{font-size:.78rem;color:var(--dim);line-height:1.58}
+
+/* ── CONTACT ──────────────────────────────── */
+#contact{padding:96px 24px;background:var(--bg)}
+.ct{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ct-text h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.025em;line-height:1.15;margin-bottom:20px}
+.ct-text p{color:var(--dim);font-size:.94rem;line-height:1.8;margin-bottom:28px}
+.ct-links{display:flex;gap:12px;flex-wrap:wrap}
+.ct-aside{
+  background:var(--panel-2);border:1px solid rgba(201,166,107,.18);
+  border-radius:22px;padding:36px;
+  box-shadow:0 32px 80px -20px var(--shadow);position:relative;overflow:hidden;
+}
+.ct-aside::before{
+  content:"";position:absolute;inset:0;border-radius:22px;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(201,166,107,.07),transparent);
+}
+.ct-aside>*{position:relative;z-index:1}
+.ct-aside h3{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+.ct-aside p{font-size:.86rem;color:var(--dim);line-height:1.7;margin-bottom:20px}
+.ct-links-2{display:flex;gap:10px;flex-direction:column}
+.ct-link{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg);border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;font-size:.84rem;font-weight:700;
+  color:var(--text);transition:border-color .2s;
+}
+.ct-link svg{width:16px;height:16px;stroke:var(--brass);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ct-link:hover{border-color:rgba(201,166,107,.35);color:var(--text)}
+
+/* ── FOOTER ──────────────────────────────── */
+footer{
+  border-top:1px solid var(--line);padding:56px 24px 24px;
+  font-size:.82rem;color:var(--dim);background:var(--panel);
+}
+footer strong{color:var(--brass)}
+.ft-inner{
+  max-width:1060px;margin:0 auto 36px;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
+}
+.ft-brand-name{font-weight:800;color:var(--text);font-size:1rem;margin-bottom:10px}
+.ft-brand p{line-height:1.7;max-width:320px}
+.ft-col h5{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+.ft-col{display:flex;flex-direction:column;gap:10px}
+.ft-col a{color:var(--dim)}
+.ft-col a:hover{color:var(--bb)}
+.ft-copy{max-width:1060px;margin:0 auto;padding-top:22px;border-top:1px solid var(--line);text-align:center}
+@media(max-width:700px){.ft-inner{grid-template-columns:1fr;gap:28px}}
+
+/* ── PARALLAX ─────────────────────────────── */
+/* Fixed blurred background layers removed for smoother scrolling. */
+/* ── REVEAL ──────────────────────────────── */
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .ab-wrap,.how-wrap,.ct{grid-template-columns:1fr;gap:44px}
+  .svc-grid{grid-template-columns:1fr}
+  .sc.wide{grid-column:span 1}
+  .svc-head{grid-template-columns:1fr}
+  .svc-note{text-align:left}
+  .how-sticky{position:static}
+}
+
+/* ── ACCESSIBILITY ───────────────────────── */
+.skip-link{
+  position:absolute;top:-48px;left:12px;z-index:200;
+  background:var(--brass);color:#0e1620;font-weight:800;
+  padding:10px 18px;border-radius:8px;transition:top .2s;
+}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible,.tog:focus-visible{
+  outline:2px solid var(--brass);outline-offset:3px;border-radius:6px;
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+
+/* Performance profile: reduce expensive compositing during page scroll. */
+html { scroll-behavior: auto; }
+body { transition: none; }
+nav { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.hero-logo, .arr svg { animation: none !important; }
+/* Scroll reveal: opacity/transform only (GPU-cheap). Applies only when JS has tagged <html class="js">. */
+.js .rv,.js .step{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s);will-change:opacity,transform}
+.js .rv.in,.js .step.in{opacity:1;transform:none;will-change:auto}
+.js .svc-grid .rv:nth-child(3n+2){--d:.08s}.js .svc-grid .rv:nth-child(3n){--d:.16s}
+.js .step:nth-child(2){--d:.06s}.js .step:nth-child(3){--d:.12s}.js .step:nth-child(4){--d:.18s}
+.js .hero-inner>*{animation:hin .8s cubic-bezier(.2,.7,.2,1) both}
+.js .hero-inner>*:nth-child(2){animation-delay:.08s}.js .hero-inner>*:nth-child(3){animation-delay:.16s}.js .hero-inner>*:nth-child(4){animation-delay:.24s}.js .hero-inner>*:nth-child(5){animation-delay:.32s}
+@keyframes hin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--text);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0}
+.burger span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .25s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none;position:fixed;top:62px;inset-inline:0;z-index:98;padding:10px 20px 20px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(0,0,0,.5);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s}
+.mmenu.open{opacity:1;transform:none;pointer-events:auto}
+.mmenu a{display:block;padding:15px 4px;border-bottom:1px solid var(--line);font-size:.86rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text)}
+.mmenu a:last-child{border-bottom:none;color:var(--brass)}
+@media(max-width:900px){.burger{display:flex}.mmenu{display:block}}
+@media(max-width:480px){nav .cta{display:none}}
+.hero-grid[data-px],.hero-glow[data-px]{inset:-25% 0}
+.sprog{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--brass);transform:scaleX(0);transform-origin:0 50%;z-index:300;pointer-events:none}
+@media (prefers-reduced-motion: reduce){.mmenu,.burger span{transition:none}.js .rv,.js .step{opacity:1;transform:none;transition:none}.js .hero-inner>*{animation:none}.sprog{display:none}}
+
+
+/* ── DOWNLOAD ────────────────────────────── */
+#download{padding:96px 24px;background:var(--bg)}
+.dl-head{max-width:760px;margin:0 auto 44px;text-align:center}
+.dl-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
+.dl-head p{color:var(--dim);font-size:.96rem;line-height:1.75;max-width:540px;margin:0 auto}
+.dl-shot{max-width:1000px;margin:0 auto 36px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);box-shadow:0 30px 80px -30px rgba(0,0,0,.65),0 0 0 1px rgba(201,166,107,.08)}
+.dl-bar{display:flex;align-items:center;gap:7px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--panel-2,var(--panel))}
+.dl-bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.dl-bar span{margin-left:10px;font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--dim)}
+.dl-shot img{display:block;width:100%;height:auto}
+.shot-light{display:none!important}
+[data-theme=light] .shot-light{display:block!important}
+[data-theme=light] .shot-dark{display:none!important}
+.dl-cta{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.btn-dl{font-size:1rem;padding:16px 34px;display:inline-flex;align-items:center;gap:10px}
+.btn-dl svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.dl-meta{font-size:.78rem;color:var(--dim);line-height:1.6}
+.dl-meta strong{color:var(--brass)}
+
+.whatsapp-float{
+ position:fixed;right:22px;bottom:22px;z-index:500;
+ width:58px;height:58px;display:flex;align-items:center;justify-content:center;
+ border-radius:50%;background:#25D366;color:#fff;
+ box-shadow:0 3px 12px rgba(0,0,0,.22);
+}
+.whatsapp-float svg{width:31px;height:31px}
+.whatsapp-float:hover{color:#fff}
+.whatsapp-float:focus-visible{outline:3px solid var(--bb);outline-offset:4px}
+@media(max-width:600px){.whatsapp-float{width:54px;height:54px;right:16px;bottom:16px}}
+
+</style>
+</head>
+<body>
+
+
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+
+<nav aria-label="Primary">
+  <div class="nav-brand">
+    <img src="/favicon.webp" alt="SalemDomain"/>
+    SalemDomain
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#download">Download</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-r">
+    <button class="tog" id="tog" aria-label="Toggle theme">
+      <div class="tog-thumb">
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+    </button>
+    <a class="cta" href="#contact">Get in Touch</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mmenu" id="mmenu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#how">How It Works</a>
+  <a href="#features">Features</a>
+  <a href="#download">Download</a>
+  <a href="#contact">Get in Touch</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid" data-px="0.35"></div>
+  <div class="hero-glow" data-px="0.2"></div>
+  <div class="hero-inner" data-px="-0.12">
+    <span class="eyebrow">Zanzibar · Tanzania</span>
+    <img class="hero-logo" src="/favicon.webp" alt="SalemDomain"/>
+    <h1>The workshop<br>deserves better tools</h1>
+    <p class="hero-p">
+      SalemDomain MobileTech is a desktop platform for mobile technicians: device diagnostics, MDM removal, ramdisk services, and billing, all in one place. No subscriptions, no cloud required.
+    </p>
+    <div class="hero-btns">
+      <a class="btn btn-g" href="#services">What We Do</a>
+      <a class="btn btn-o" href="#download">Download</a>
+    </div>
+  </div>
+  <div class="arr">
+    <span>Scroll</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="ab-wrap rv">
+    <div class="ab-text">
+      <span class="label">The Story</span>
+      <h2>We built what we needed</h2>
+      <p>
+        Mobile repair shops in Zanzibar were running the same workflows as shops
+        anywhere else, but the tools available to them weren't close.
+        SalemDomain MobileTech started as a practical answer to that gap.
+      </p>
+      <p>
+        Every screen you see was designed around the actual rhythm of a repair
+        bench. The billing engine charges <strong>once per device's hardware identifier</strong>,
+        so the same phone never gets billed twice. The log shows you exactly what
+        happened, step by step, in real time, with no post-hoc guessing.
+      </p>
+      <p>
+        We're part of the <strong>ZIVO</strong> community, the Zanzibar Internship &amp;
+        Volunteer Organization, and we think technicians on the Indian Ocean coast
+        should have the same quality tools as anyone in London or Nairobi.
+      </p>
+    </div>
+    <div class="ab-aside" data-px="-0.06">
+      <div class="pull-quote">
+        <blockquote>"The same phone never gets billed twice."</blockquote>
+        <cite>— Hardware-bound billing, per Serial Number or ECID</cite>
+      </div>
+      <div class="detail-grid">
+        <div class="detail">
+          <div class="detail-num">01</div>
+          <div><h5>One-time billing per device</h5><p>Each charge is tied to a unique hardware ID. No recurring fees, no surprises.</p></div>
+        </div>
+        <div class="detail">
+          <div class="detail-num">02</div>
+          <div><h5>Full audit trail</h5><p>Every operation, success, duplicate, or failure, is logged automatically.</p></div>
+        </div>
+        <div class="detail">
+          <div class="detail-num">03</div>
+          <div><h5>Automatic file cleanup</h5><p>Extracted files are removed after each job. Nothing lingers on the machine.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-head rv">
+    <div class="svc-head-text">
+      <span class="label">Services</span>
+      <h2>What we actually do</h2>
+      <p>Six services, one desktop app. Each one guided, logged, and charged only when it's done.</p>
+    </div>
+    <p class="svc-note">Prices are per-device, not per-month. <strong>No subscription.</strong></p>
+  </div>
+  <div class="svc-grid">
+
+    <div class="sc wide rv">
+      <div class="si"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+      <h3>iPhone MDM Bypass</h3>
+      <p>Removes Mobile Device Management profiles from compatible iPhones using a verified device-level flow. The app reads the Serial Number, checks the activation state, and submits a one-time charge only after every pre-flight check passes. The same device can never be double-charged.</p>
+      <span class="st st-br">One-Time · $2</span>
+    </div>
+
+    <div class="sc rv">
+      <div class="si"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11L6.5 17M12 11l5.5 6"/></svg></div>
+      <h3>Ramdisk A12 / A13</h3>
+      <p>Advanced ramdisk service for A12 and A13 iPhones in Pwned DFU mode. Device model is identified from CPID and BDID automatically, with no manual input.</p>
+      <span class="st st-br">One-Time · $1.5</span>
+    </div>
+
+    <div class="sc rv">
+      <div class="si"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+      <h3>TECNO / INFINIX / ITEL MDM</h3>
+      <p>Full MDM removal for the TECNO family. Per-request billing with job tracking, image upload, and automated service steps.</p>
+      <span class="st st-ok">Per Request · $8.5</span>
+    </div>
+
+    <div class="sc rv">
+      <div class="si"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M7 21h10M9 18v3M15 18v3"/></svg></div>
+      <h3>Device Diagnostics</h3>
+      <p>Instant identification in Normal, Recovery, and DFU Mode. ECID, CPID, BDID, iBoot version, Pwned DFU status: all read on connect, with no button-pressing.</p>
+      <span class="st st-br">Built-In · Free</span>
+    </div>
+
+    <div class="sc rv">
+      <div class="si"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+      <h3>DFU Mode Helper</h3>
+      <p>Enters Recovery Mode automatically via software. Guides you through the DFU button combo with a live countdown that matches your exact device generation.</p>
+      <span class="st st-br">Built-In · Free</span>
+    </div>
+
+    <div class="sc rv">
+      <div class="si"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+      <h3>Billing &amp; Credits</h3>
+      <p>Credit recharge via PesaPal, balance display, full transaction history. Everything visible, nothing hidden.</p>
+      <span class="st st-br">Included</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="how-wrap">
+    <div class="how-sticky rv">
+      <span class="label">The Flow</span>
+      <h2>Same four steps, every time</h2>
+      <p style="color:var(--dim);font-size:.93rem;line-height:1.75;margin-top:12px">
+        We made it consistent on purpose. Once you've done one service, you know how all of them work.
+      </p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h4>Connect &amp; detect</h4>
+        <p>Plug the device in. The platform reads the USB descriptor immediately: brand, model, chip, mode, iOS version, activation state. No waiting, no manual entry.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h4>Pair if needed</h4>
+        <p>For Normal Mode services, the app handles pairing automatically. If the pairing record is stale, it repairs it. If the device needs to show a Trust prompt, it waits for you to tap it.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h4>Charge once</h4>
+        <p>The service charge is tied to the device's hardware identifier. Same device on a second visit? The app recognises it, skips the charge, and runs the service anyway. You're billed for work, not for repeat submissions.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <h4>Run &amp; clean up</h4>
+        <p>The service runs. Every step is logged to the panel in real time. When it's done, whether success or failure, temporary files are removed and the log is written. The bench stays clear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="ft-wrap">
+    <div class="ft-intro rv">
+      <span class="label">Platform Details</span>
+      <h2>The parts that matter</h2>
+      <p>Some platform decisions that might not be obvious from the outside but make a real difference day-to-day.</p>
+    </div>
+    <div class="ft-grid">
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <div><h4>Real-time step log</h4><p>Every service logs each step as it happens, with timestamps and status tags. No spinner and hope.</p></div>
+      </div>
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <div><h4>Resumable downloads</h4><p>Large ramdisk files download in parts. If the connection drops, the next run resumes from exactly where it stopped.</p></div>
+      </div>
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <div><h4>Silent auto-updater</h4><p>Checks for new versions on every launch. Updates install quietly, and you start the updated version next time you open the app.</p></div>
+      </div>
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+        <div><h4>Event-driven USB detection</h4><p>No polling. The platform listens for real OS-level device events, and the panel updates the moment a device connects or changes mode.</p></div>
+      </div>
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        <div><h4>Role-based access</h4><p>Separate views and permissions for superusers and technicians. Documents and admin panels are only visible to accounts that should see them.</p></div>
+      </div>
+      <div class="fi rv">
+        <svg viewBox="0 0 24 24"><path d="M1 6s2-2 5-2 5 3 8 3 5-2 5-2v14s-2 2-5 2-5-3-8-3-5 2-5 2V6z"/></svg>
+        <div><h4>Dark &amp; light mode</h4><p>Both modes use the same brass/navy palette. Preference is saved locally and applied immediately on the next launch, splash screen included.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="dl-head rv">
+    <span class="label">Download</span>
+    <h2>Get the desktop app</h2>
+    <p>Install SalemDomain MobileTech on your Windows PC and start servicing devices. Detection, pairing, billing and logs, all in one window.</p>
+  </div>
+  <div class="dl-shot rv">
+    <img class="shot-dark" src="/app-screenshot.webp" srcset="/app-screenshot-sm.webp 683w, /app-screenshot.webp 1366w" sizes="(max-width:1000px) 92vw, 1000px" width="1366" height="716" loading="lazy" decoding="async" alt="SalemDomain MobileTech desktop app showing the Device Info screen with the sidebar for iPhone Bypass, TECNO MDM, Recharge and Invoices"/>
+    <img class="shot-light" src="/app-screenshot-light.webp" srcset="/app-screenshot-light-sm.webp 683w, /app-screenshot-light.webp 1366w" sizes="(max-width:1000px) 92vw, 1000px" width="1365" height="713" loading="lazy" decoding="async" alt="SalemDomain MobileTech desktop app in light theme showing the Device Info screen with the sidebar for iPhone Bypass, TECNO MDM, Recharge and Invoices"/>
+  </div>
+  <div class="dl-cta rv">
+    <a class="btn btn-g btn-dl" href="https://github.com/salemdomain/salemdomain-mobiletech/releases/download/v0.0.1/SalemDomain_0.0.1_x64-setup.exe" download rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+      Download for Windows
+    </a>
+    <p class="dl-meta">Version <strong>0.0.1</strong> &middot; Windows 64-bit installer (.exe)</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="ct">
+    <div class="ct-text rv">
+      <h2>Let's talk shop</h2>
+      <p>
+        SalemDomain MobileTech runs on Windows. If you're a mobile technician
+        who wants to try it, or a repair shop looking to set up accounts for
+        your team, get in touch. We're based in Zanzibar and respond fast.
+      </p>
+      <div class="ct-links">
+        <a class="btn btn-g" href="mailto:info@salemdomain.com">Send an email</a>
+        <a class="btn btn-o" href="#services">View services</a>
+      </div>
+    </div>
+    <div class="ct-aside rv">
+      <h3>Get in touch</h3>
+      <p>Choose whichever channel works for you. We'll get back to you the same day.</p>
+      <div class="ct-links-2">
+        <a class="ct-link" href="mailto:info@salemdomain.com">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@salemdomain.com
+        </a>
+        <a class="ct-link" href="https://salemdomainmobiletech.rf.gd" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          salemdomainmobiletech.rf.gd
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<a class="whatsapp-float"
+   href="https://chat.whatsapp.com/GyZgyItIxJq6CoNLc0kEGH"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Join the SalemDomain MobileTech WhatsApp group"
+   title="Join our WhatsApp group">
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M16.04 3C8.88 3 3.05 8.78 3.05 15.9c0 2.28.61 4.51 1.77 6.48L3 29l6.83-1.78a13.1 13.1 0 0 0 6.2 1.56h.01c7.16 0 12.99-5.79 12.99-12.9A12.8 12.8 0 0 0 16.04 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.05 1.06 1.08-3.92-.26-.4a10.7 10.7 0 0 1-1.66-5.69c0-5.98 4.88-10.84 10.87-10.84 2.9 0 5.63 1.13 7.68 3.18a10.75 10.75 0 0 1 3.18 7.67c0 5.98-4.88 10.85-10.88 10.85Zm5.97-8.13c-.33-.16-1.95-.96-2.25-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.16-1.39-.51-2.65-1.63-.98-.87-1.64-1.95-1.83-2.28-.19-.33-.02-.51.14-.67.15-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.06-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.7 0 1.59 1.17 3.13 1.33 3.35.16.22 2.3 3.5 5.58 4.91.78.34 1.39.54 1.86.69.78.25 1.49.22 2.05.13.63-.09 1.95-.8 2.23-1.57.27-.77.27-1.43.19-1.57-.08-.14-.3-.22-.63-.38Z"/>
+  </svg>
+</a>
+
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <div class="ft-brand-name">SalemDomain <strong>MobileTech</strong></div>
+      <p>A desktop platform for mobile repair technicians: diagnostics, MDM removal, ramdisk services, and billing, built for the Zanzibar repair bench and beyond.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Site</h5>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+    </div>
+    <div class="ft-col">
+      <h5>Company</h5>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+      <a href="mailto:info@salemdomain.com">info@salemdomain.com</a>
+    </div>
+  </div>
+  <p class="ft-copy">&copy; 2026 <strong>SalemDomain MobileTech</strong>, Zanzibar, Tanzania</p>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const toggle = document.getElementById('tog');
+  try {
+    const saved = localStorage.getItem('salemdomain-theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (_) {}
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('salemdomain-theme', next); } catch (_) {}
+    });
+  }
+  // Scroll-reveal + progress bar
+  const items = document.querySelectorAll('.rv,.step');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window) || reduce) {
+    items.forEach(e => e.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    items.forEach(e => io.observe(e));
+    const bar = document.createElement('div'); bar.className = 'sprog'; bar.setAttribute('aria-hidden','true');
+    document.body.appendChild(bar);
+    let tick = false;
+    addEventListener('scroll', () => {
+      if (tick) return; tick = true;
+      requestAnimationFrame(() => {
+        const h = document.documentElement.scrollHeight - innerHeight;
+        items.forEach(e => { if (!e.classList.contains('in') && e.getBoundingClientRect().bottom < 0) { e.classList.add('in'); io.unobserve(e); } });
+        bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+        tick = false;
+      });
+    }, { passive: true });
+  }
+  // Mobile menu
+  const burger = document.getElementById('burger'), mm = document.getElementById('mmenu');
+  if (burger && mm) {
+    const set = (o) => { mm.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); };
+    burger.addEventListener('click', () => set(!mm.classList.contains('open')));
+    mm.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+    addEventListener('resize', () => { if (innerWidth > 900) set(false); });
+  }
+  // Parallax (uses the independent `translate` property so it never fights reveal transforms)
+  const px = [...document.querySelectorAll('[data-px]')];
+  if (px.length && !reduce) {
+    let pt = false;
+    const run = () => {
+      pt = false;
+      px.forEach(el => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        const off = (r.top + r.height / 2 - innerHeight / 2) * -parseFloat(el.dataset.px);
+        el.style.translate = '0 ' + off.toFixed(1) + 'px';
+      });
+    };
+    addEventListener('scroll', () => { if (!pt) { pt = true; requestAnimationFrame(run); } }, { passive: true });
+    run();
+  }
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }, { once: true });
+  }
+})();
+</script>
+</body>
+</html>
